@@ -1,0 +1,31 @@
+name: Atools
+version: 0.1.0
+description: Anarchy Tools extends additional functionality to both the grav cli and grav admin plugins.
+icon: plug
+author:
+  name: Jeremy Gonyea
+  email: jeremy.gonyea@gmail.com
+homepage: https://github.com/jgonyea/grav-plugin-atools
+demo: http://demo.yoursite.com
+keywords: grav, plugin, etc
+bugs: https://github.com/jgonyea/grav-plugin-atools/issues
+docs: https://github.com/jgonyea/grav-plugin-atools/blob/develop/README.md
+license: MIT
+
+form:
+  validation: strict
+  fields:
+    enabled:
+      type: toggle
+      label: Plugin status
+      highlight: 1
+      default: 0
+      options:
+        1: Enabled
+        0: Disabled
+      validate:
+        type: bool
+    text_var:
+      type: text
+      label: Text Variable
+      help: Text to add to the top of a page
