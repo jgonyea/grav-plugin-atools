@@ -48,12 +48,21 @@ class AtoolsPlugin extends Plugin
      */
     public static function disablePlugin($message, $level = "info", $plugin_name)
     {
-        $disable_message = "Disabling the '" . $plugin_name . "' plugin.  Please refresh the admin/plugins page.";
-
         $grav = new Grav();
+
+        // Double check that the plugin isn't already disabled.
+        if ($grav::instance()['config']['plugins'][$plugin_name]['enabled'] === false) {
+            $gui_message = "Plugin '" . $plugin_name . "' was already disabled.  No action performed.";
+            $grav::instance()['log']->info($gui_message);
+            $grav::instance()['messages']->add($gui_message, "info");
+            return;
+        }
+
+        $disable_message = "Disabled the '" . $plugin_name . "' plugin.  Please refresh the admin/plugins page.";
+
         $config_file_path = USER_DIR . "config/plugins/". $plugin_name . ".yaml";
         $file = File::instance($config_file_path);
-        
+
         if ($file->writable()) {
             // Load config file.
             $config_data = Yaml::parse($file->content());
@@ -69,8 +78,4 @@ class AtoolsPlugin extends Plugin
         }
     }
 
-    public static function log($message){
-        $grav = new Grav();
-        $grav::instance()['log']->info($message);
-    }
 }
