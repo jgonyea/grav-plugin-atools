@@ -27,7 +27,8 @@ class EnablePluginCommand extends ConsoleCommand
     {
         
         $this
-            ->setName("enable")
+            ->setName("enable-plugin")
+            ->setAliases(['en'])
             ->setDescription("Enables a specified plugin.")
             ->addArgument(
                 'name',

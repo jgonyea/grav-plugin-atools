@@ -28,7 +28,8 @@ class DisablePluginCommand extends ConsoleCommand
     {
         
         $this
-            ->setName("disable")
+            ->setName("disable-plugin")
+            ->setAliases(['dis'])
             ->setDescription("Disables a specified plugin.")
             ->addArgument(
                 'name',

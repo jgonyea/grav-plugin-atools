@@ -23,7 +23,8 @@ class ListPluginCommand extends ConsoleCommand
     {
         
         $this
-            ->setName("list")
+            ->setName("list-plugin")
+            ->setAliases(['list'])
             ->setDescription("Lists installed plugins.")
             ->setHelp('The <info>list</info> command lists all installed plugins.')
         ;
