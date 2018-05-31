@@ -1,7 +1,8 @@
 <?php
 namespace Grav\Plugin\Console;
 
-use \Grav\Common\Grav;
+use Grav\Common\Grav;
+use Grav\Common\Cache;
 use Grav\Console\ConsoleCommand;
 use Grav\Plugin\AtoolsPlugin;
 use RocketTheme\Toolbox\File\File;
@@ -29,7 +30,7 @@ class DisablePluginCommand extends ConsoleCommand
         
         $this
             ->setName("disable-plugin")
-            ->setAliases(['dis'])
+            ->setAliases(['disp'])
             ->setDescription("Disables a specified plugin.")
             ->addArgument(
                 'name',

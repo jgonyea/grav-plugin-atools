@@ -2,6 +2,7 @@
 namespace Grav\Plugin;
 
 use \Grav\Common\Grav;
+use Grav\Common\Cache;
 use Grav\Common\Plugin;
 use RocketTheme\Toolbox\Event\Event;
 use RocketTheme\Toolbox\File\File;
@@ -75,6 +76,7 @@ class AtoolsPlugin extends Plugin
             $grav::instance()['log']->info($disable_message);
             $grav::instance()['messages']->add($message, $level);
             $grav::instance()['messages']->add($disable_message, 'warning');
+            Cache::clearCache('standard');
         }
     }
 

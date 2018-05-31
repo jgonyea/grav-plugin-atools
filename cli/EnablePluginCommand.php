@@ -1,7 +1,7 @@
 <?php
 namespace Grav\Plugin\Console;
 
-use \Grav\Common\Grav;
+use Grav\Common\Grav;
 use Grav\Console\ConsoleCommand;
 use RocketTheme\Toolbox\File\File;
 use Symfony\Component\Console\Input\InputArgument;
@@ -28,7 +28,7 @@ class EnablePluginCommand extends ConsoleCommand
         
         $this
             ->setName("enable-plugin")
-            ->setAliases(['en'])
+            ->setAliases(['enp'])
             ->setDescription("Enables a specified plugin.")
             ->addArgument(
                 'name',
@@ -73,13 +73,13 @@ class EnablePluginCommand extends ConsoleCommand
 
                 $grav::instance()['log']->info($enable_message);
                 $this->output->writeln($enable_message);
+                Cache::clearCache('standard');
             }
         } catch(Exception $e){
             $message = "Failed to enable the " . $this->options['name'] . " plugin.";
             $this->output->writeln($message);
             $grav::instance()['log']->info($message);
             $this->output->writeln("Is the file " . $config_file_path . " writable?");
-            
         }
     }
     
