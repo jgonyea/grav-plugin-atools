@@ -2,6 +2,7 @@
 namespace Grav\Plugin\Console;
 
 use Grav\Common\Grav;
+use Grav\Common\Cache;
 use Grav\Console\ConsoleCommand;
 use RocketTheme\Toolbox\File\File;
 use Symfony\Component\Console\Input\InputArgument;
